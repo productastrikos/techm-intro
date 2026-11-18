@@ -9,7 +9,7 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&
 
 function link(p, i) {
   return `
-    <a class="link" href="${esc(p.url)}" data-index="${i}" style="--i:${i}">
+    <a class="link" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" data-index="${i}" style="--i:${i}">
       <span class="link-art">${ART[p.art]?.() ?? ''}</span>
       <span class="link-body">
         <span class="link-top">
@@ -35,9 +35,6 @@ export function mountHub(root, { onReplay, onPreview, onRelease }) {
           <img class="logo-techm" src="${BRAND.techm.src}" alt="${esc(BRAND.techm.alt)}" />
           <i aria-hidden="true"></i>
           <img class="logo-astrikos" src="${BRAND.astrikos.src}" alt="${esc(BRAND.astrikos.alt)}" />
-        </div>
-        <div class="hub-title">
-          <h1>Intelligence Command Center</h1>
         </div>
         <div class="hub-actions">
           <time class="clock" data-clock></time>
